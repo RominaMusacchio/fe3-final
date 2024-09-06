@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import Contact from "./Routes/Contact";
 import Home from "./Routes/Home";
 import ContextProvider from "./Components/utils/global.context";
+import Detail from "./Routes/Detail";
+
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
           </Route>
           <Route path={"/favs"} element={<div>Soy el fav</div>}>
             Fav
+          </Route>
+          <Route path={"/detail/:id"} element={<Detail/>}>
+            Detail
           </Route>
         </Routes>
         <Footer />
