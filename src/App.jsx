@@ -6,6 +6,7 @@ import Contact from "./Routes/Contact";
 import Home from "./Routes/Home";
 import ContextProvider from "./Components/utils/global.context";
 import Detail from "./Routes/Detail";
+import Favs from "./Routes/Favs";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Route path={"/contact"} element={<Contact />}>
             Contact
           </Route>
-          <Route path={"/favs"} element={<div>Soy el fav</div>}>
+          <Route path={"/favs"} element={<Favs/>}>
             Fav
           </Route>
           <Route path={"/detail/:id"} element={<Detail/>}>

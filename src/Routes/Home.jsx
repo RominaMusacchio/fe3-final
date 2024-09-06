@@ -5,12 +5,12 @@ import { useDentistStates } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const {dentists} = useDentistStates();
+  const {state } = useDentistStates();
   return (
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'>
-      {dentists.map((dentist) => (
+      {state.data.map((dentist) => (
           <Card key={dentist.id} dentist={dentist} />
         ))}
       </div>

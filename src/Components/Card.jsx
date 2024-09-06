@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDentistStates } from "../Components/utils/global.context";
 
 const Card = ({ dentist }) => {
+  
+  console.log(dentist);
   const { name, username, id } = dentist;
+  const { dispatch } = useDentistStates();
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
+    dispatch({type:"Add_Fav", payload: dentist});
   };
   return (
     <div className="card">
