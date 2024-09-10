@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const lsFavs = JSON.parse(localStorage.getItem("favs")) || [];
-export const initialState = { theme: "", data: [], favs: lsFavs };
+export const initialState = { theme: false, data: [], favs: lsFavs};
 const ContextGlobal = createContext();
 
 const reducer = (state, action) => {
@@ -14,9 +14,10 @@ const reducer = (state, action) => {
       return {...state, data: action.payload}
     case 'Add_Fav':
       return {...state, favs: [...state.favs, action.payload]}
+    case 'Change_theme':
+      return {...state, theme: !state.theme}
   }
 }
-
 
 export const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
