@@ -4,7 +4,6 @@ import { useDentistStates } from "../Components/utils/global.context";
 
 const Card = ({ dentist }) => {
   
-  console.log(dentist);
   const { name, username, id } = dentist;
   const { dispatch } = useDentistStates();
   const addFav = () => {

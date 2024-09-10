@@ -3,7 +3,9 @@ import { useContext, useState, useEffect, useReducer } from "react";
 
 import axios from "axios";
 
-export const initialState = { theme: "", data: [], favs: [] };
+
+const lsFavs = JSON.parse(localStorage.getItem("favs")) || [];
+export const initialState = { theme: "", data: [], favs: lsFavs };
 const ContextGlobal = createContext();
 
 const reducer = (state, action) => {
@@ -26,9 +28,16 @@ export const ContextProvider = ({ children }) => {
     axios(url).then((res) => {
       //setDentists(res.data);
       dispatch({type: 'Get_Dentists', payload: res.data});
-      console.log(res.data);
     });
   }, []);
+
+
+useEffect(() => {
+
+  localStorage.setItem("favs", JSON.stringify(state.favs));
+
+}, [state.favs]);
+  
 
   return (
     <ContextGlobal.Provider value={{ state, dispatch }}>
