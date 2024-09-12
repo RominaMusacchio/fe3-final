@@ -5,10 +5,17 @@ import { useDentistStates } from "../Components/utils/global.context";
 const Card = ({ dentist }) => {
   
   const { name, username, id } = dentist;
-  const { dispatch } = useDentistStates();
+  const { dispatch , state } = useDentistStates();
+  const isFav = state.favs.find((fav) => fav.id == dentist.id);
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
-    dispatch({type:"Add_Fav", payload: dentist});
+
+    dispatch({type:isFav ? "Remove_Fav" : "Add_Fav", payload:dentist});
+    // if(isFav){
+    //   dispatch({type:"Remove_Fav", payload: dentist});
+    // }else{
+    //   dispatch({type:"Add_Fav", payload: dentist});
+    // }
   };
   return (
     <div className="card">

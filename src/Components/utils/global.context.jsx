@@ -16,6 +16,9 @@ const reducer = (state, action) => {
       return {...state, favs: [...state.favs, action.payload]}
     case 'Change_theme':
       return {...state, theme: !state.theme}
+    case 'Remove_Fav':
+      const filteredFavs = state.favs.filter((fav) => fav.id !== action.payload.id);
+      return {...state, favs: filteredFavs};
   }
 }
 
