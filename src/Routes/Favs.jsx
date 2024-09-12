@@ -6,6 +6,7 @@ import { useDentistStates } from "../Components/utils/global.context";
 
 const Favs = () => {
   const { state } = useDentistStates();
+  const vacia = state.favs.length > 0 ? false : true;
   console.log(state.favs);
   return (
     <>
@@ -14,9 +15,16 @@ const Favs = () => {
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
 
-        {state.favs.map((dentist) => (
+        {vacia ? (
+        <div>Aun no tienes Favs 😢</div>
+      ) : (
+        state.favs.map((dentist) => (
           <Card key={dentist.id} dentist={dentist} />
-        ))}
+        ))
+      )}
+        {/* {state.favs.map((dentist) => (
+          <Card key={dentist.id} dentist={dentist} />
+        ))} */}
       </div>
     </>
   );
