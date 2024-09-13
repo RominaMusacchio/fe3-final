@@ -22,9 +22,7 @@ const Favs = () => {
           <Card key={dentist.id} dentist={dentist} />
         ))
       )}
-        {/* {state.favs.map((dentist) => (
-          <Card key={dentist.id} dentist={dentist} />
-        ))} */}
+       
       </div>
     </div>
   );

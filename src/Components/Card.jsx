@@ -8,14 +8,9 @@ const Card = ({ dentist }) => {
   const { dispatch , state } = useDentistStates();
   const isFav = state.favs.find((fav) => fav.id == dentist.id);
   const addFav = () => {
-    // Aqui iria la logica para agregar la Card en el localStorage
-
+   
     dispatch({type:isFav ? "Remove_Fav" : "Add_Fav", payload:dentist});
-    // if(isFav){
-    //   dispatch({type:"Remove_Fav", payload: dentist});
-    // }else{
-    //   dispatch({type:"Add_Fav", payload: dentist});
-    // }
+    
   };
   return (
     <div className="card">
@@ -25,7 +20,12 @@ const Card = ({ dentist }) => {
       <div>{username}</div>
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <button onClick={addFav} className="favButton">Add fav</button>
+
+      {isFav ? (
+        <button onClick={addFav} className="favButton">💕</button>
+      ) : (
+        <button onClick={addFav} className="favButton">❤</button>
+      )}
       <Link to={"/detail/" + id}>
         Ver detalle
       </Link>
