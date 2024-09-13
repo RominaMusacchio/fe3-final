@@ -29,6 +29,9 @@ function App() {
         <Route path={"/detail/:id"} element={<Detail />}>
           Detail
         </Route>
+        <Route path={"*"} element={<h1>Page Not Found</h1>}>
+          Page not found
+        </Route>
       </Routes>
       <Footer />
     </div>
