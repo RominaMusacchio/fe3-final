@@ -28,7 +28,7 @@ const Navbar = () => {
       </Link>
   
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button className="favButton" onClick={changeTheme}>Change theme </button>
+      <button className="favButton" onClick={changeTheme}>🌙</button>
     </nav>
   )
 }

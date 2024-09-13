@@ -9,7 +9,7 @@ const Favs = () => {
   const vacia = state.favs.length > 0 ? false : true;
   console.log(state.favs);
   return (
-    <>
+    <div id="divContenedora">
       <h1>Dentists Favs</h1>
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
@@ -26,7 +26,7 @@ const Favs = () => {
           <Card key={dentist.id} dentist={dentist} />
         ))} */}
       </div>
-    </>
+    </div>
   );
 };
 

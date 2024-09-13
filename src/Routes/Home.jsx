@@ -7,7 +7,7 @@ import { useDentistStates } from "../Components/utils/global.context";
 const Home = () => {
   const {state } = useDentistStates();
   return (
-    <main >
+    <main className={state.theme ? 'dark-theme' : 'light-theme'}>
       <h1>Home</h1>
       <div className='card-grid'>
       {state.data.map((dentist) => (
